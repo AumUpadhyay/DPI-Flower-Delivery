@@ -8,107 +8,78 @@
 
 import React from 'react';
 import {
-  SafeAreaView,
+  Button,
   StyleSheet,
-  ScrollView,
+  TouchableOpacity,
   View,
+  TextInput,
   Text,
-  StatusBar,
+  Dimensions,
+  Image,
+  ScrollView
 } from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+const height = Dimensions.get("window").height
+const width = Dimensions.get("window").width
+import {MyFacebookLoginButton} from './components/MyFaceBookLogInButton'
+export default class App extends React.Component {
+  render() {
+    return (
+      <View>
+        <ScrollView>
+          <Text style={{
+            textAlign: 'center', fontSize: 50, marginTop: 50, color: 'black', fontWeight: "bold"
+          }}>Log in</Text>
+          <TextInput style=
+            {{ height: 60, borderColor: 'gray', borderWidth: 1, width: width - 60, marginLeft: 30, marginTop: height / 4, borderRadius: 30, fontSize: 20 }}
+            placeholder="   Username" />
+          <TextInput style=
+            {{ height: 60, borderColor: 'gray', borderWidth: 1, width: width - 60, marginLeft: 30, marginTop: 30, borderRadius: 30, fontSize: 20 }}
+            placeholder="   Password"
+            secureTextEntry={true} />
+          <TouchableOpacity style={styles.buttonHover}>
+            <Button title="LOG  IN" color="white" />
+          </TouchableOpacity>
 
-const App: () => React$Node = () => {
-  return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
         </ScrollView>
-      </SafeAreaView>
-    </>
-  );
-};
+        <Image style={{ marginTop: 55, height: 200 }} source={require("./images/pink_rosesflower_footer.jpg")} ></Image>
+      </View>
+    )
+  }
+}
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
+  button: {
+    borderRadius: 25,
+    paddingTop: 5,
+    paddingBottom: 5,
+    paddingLeft: 50,
+    paddingRight: 50,
+    backgroundColor: '#2596be',
+    shadowColor: '#2596be',
+    shadowOpacity: 0.8,
+    elevation: 6,
+    shadowRadius: 15,
+    shadowOffset: { width: 1, height: 13 },
+    width: width - 60
   },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
+  buttonHover: {
+    marginTop: 10,
+    borderRadius: 25,
+    paddingTop: 5,
+    paddingBottom: 5,
+    paddingLeft: 50,
+    paddingRight: 50,
+    shadowColor: '#2596be',
+    shadowOpacity: 1.5,
+    elevation: 8,
+    shadowRadius: 20,
+    shadowOffset: { width: 1, height: 13 },
+    backgroundColor: '#2596be',
+    color: '#2596be',
+    width: width - 60,
+    marginLeft: 30,
+    marginTop: 60,
+    marginBottom: 50
+  }
 });
-
-export default App;
