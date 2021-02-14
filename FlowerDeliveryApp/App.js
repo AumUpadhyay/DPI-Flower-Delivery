@@ -1,11 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
 import {
   Button,
@@ -18,32 +10,29 @@ import {
   Image,
   ScrollView
 } from 'react-native';
+import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Login from './screens/Login'
+import Home from './screens/Home'
 
 const height = Dimensions.get("window").height
 const width = Dimensions.get("window").width
-import {MyFacebookLoginButton} from './components/MyFaceBookLogInButton'
+
+const Stack = createStackNavigator()
+
 export default class App extends React.Component {
   render() {
     return (
-      <View>
-        <ScrollView>
-          <Text style={{
-            textAlign: 'center', fontSize: 50, marginTop: 50, color: 'black', fontWeight: "bold"
-          }}>Log in</Text>
-          <TextInput style=
-            {{ height: 60, borderColor: 'gray', borderWidth: 1, width: width - 60, marginLeft: 30, marginTop: height / 4, borderRadius: 30, fontSize: 20 }}
-            placeholder="   Username" />
-          <TextInput style=
-            {{ height: 60, borderColor: 'gray', borderWidth: 1, width: width - 60, marginLeft: 30, marginTop: 30, borderRadius: 30, fontSize: 20 }}
-            placeholder="   Password"
-            secureTextEntry={true} />
-          <TouchableOpacity style={styles.buttonHover}>
-            <Button title="LOG  IN" color="white" />
-          </TouchableOpacity>
+      <NavigationContainer>
+        <Stack.Navigator screenOptions={{
+          headerShown: false
+        }}>
+          <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="Home" component={Home} />
+        </Stack.Navigator>
+      </NavigationContainer>
 
-        </ScrollView>
-        <Image style={{ marginTop: 55, height: 200 }} source={require("./images/pink_rosesflower_footer.jpg")} ></Image>
-      </View>
     )
   }
 }
