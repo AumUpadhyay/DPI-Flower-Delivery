@@ -19,18 +19,14 @@ export default class Login extends React.Component {
         return (
             <View>
                 <ScrollView>
-                    <Text style={{
-                        textAlign: 'center', fontSize: 50, marginTop: 50, color: 'black', fontWeight: "bold"
-                    }}>Log in</Text>
-                    <TextInput style=
-                        {{ height: 60, borderColor: 'gray', borderWidth: 1, width: width - 60, marginLeft: 30, marginTop: height / 4, borderRadius: 30, fontSize: 20 }}
+                    <Text style={styles.login}>Log in</Text>
+                    <TextInput style= {styles.textinput}
                         placeholder="   Username" />
-                    <TextInput style=
-                        {{ height: 60, borderColor: 'gray', borderWidth: 1, width: width - 60, marginLeft: 30, marginTop: 30, borderRadius: 30, fontSize: 20 }}
+                    <TextInput style= {styles.textinput2}
                         placeholder="   Password"
                         secureTextEntry={true} />
-                    <TouchableOpacity style={styles.buttonHover} onPress = {() => {this.props.navigaiton.navigate('Home')}}>
-                        <Button onPress = {() => {this.props.navigation.navigate('Home')}} title="LOG  IN" color="white" />
+                    <TouchableOpacity style={styles.buttonHover} onPress={() => { this.props.navigaiton.navigate('Home') }}>
+                        <Button onPress={() => { this.props.navigation.navigate('Home') }} title="LOG  IN" color="white" />
                     </TouchableOpacity>
 
                 </ScrollView>
@@ -41,6 +37,33 @@ export default class Login extends React.Component {
 }
 
 const styles = StyleSheet.create({
+    login: {
+        textAlign: 'center',
+        fontSize: 50,
+        marginTop: 50,
+        color: 'black',
+        fontWeight: "bold"
+    },
+    textinput: {
+        height: 60,
+        borderColor: 'gray',
+        borderWidth: 1,
+        width: width - 60,
+        marginLeft: 30,
+        marginTop: height / 4,
+        borderRadius: 30,
+        fontSize: 20
+    },
+    textinput2: {
+        height: 60,
+        borderColor: 'gray',
+        borderWidth: 1,
+        width: width - 60,
+        marginLeft: 30,
+        marginTop: 30,
+        borderRadius: 30,
+        fontSize: 20
+    },
     button: {
         borderRadius: 25,
         paddingTop: 5,
