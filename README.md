@@ -12,9 +12,9 @@ npm install \
 cd /ios \
 pod install \
 cd .. \
-react-native run-ios \
+react-native run-ios 
 
 Windows: \
 Clone repo \
 npm install \
-react-native run-android \
+react-native run-android 
